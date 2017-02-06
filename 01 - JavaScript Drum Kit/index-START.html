@@ -70,6 +70,13 @@
 
   });
 
+  function removeTransition(e) {
+    if (e.propertyName !== 'transform') return; // skip it if it's not a transform. We're picking the longest transition.
+    console.log(e.propertyName);
+    // this is the key
+    this.classList.remove('playing');
+  }
+
   const keys = document.querySelectorAll('.key');
   keys.forEach(key => key.addEventListener('transitionend', removeTransition));
   console.log(keys);
